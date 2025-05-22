@@ -20,7 +20,8 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   {
-    "linrongbin16/gitlinker.nvim",
+    "mochi-sann/gitlinker.nvim",
+    branch = "switch-to-vim-clipboard",
     dev = true,
     config = function()
       require("gitlinker").setup({ debug = true, file_log = true })
@@ -88,8 +89,6 @@ require("lazy").setup({
       },
     },
   },
-}, {
-  dev = { path = "~/github/linrongbin16" },
 })
 
 vim.cmd([[ colorscheme darkblue ]])
