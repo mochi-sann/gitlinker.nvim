@@ -4,6 +4,9 @@
 --- @param url string
 local function clipboard(url)
   vim.api.nvim_command("let @+ = '" .. url .. "'")
+  vim.fn.setreg("+", url)
+  vim.fn.system("echo -n " .. url .. " | pbcopy")
+  vim.notify("URL copied to clipboard: " .. url, vim.log.levels.INFO)
 end
 
 -- open url in browser
@@ -24,6 +27,7 @@ end
 local M = {
   clipboard = clipboard,
   system = system,
+  vim = clipboard,
 }
 
 return M
